@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Sidebar from './sidebar'
+import { Switch, Route} from "react-router-dom";
+import { Dashboard } from './components/Dashboard';
+import {UserProfile} from './components/UserProfile';
+import {TableList} from './components/TableList';
+import {Typography} from './components/Typography';
+import {Icons} from './components/Icons';
+import {Maps} from './components/Maps';
+import {Notifications} from './components/Notifications';
+import {RTLSupport} from './components/RTLSupport';
+import {UpgradeToPRO} from './components/UpgradeToPRO';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <Sidebar/>
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
+          <Route path="/UserProfile" component={UserProfile} />
+          <Route path="/TableList" component={TableList} />
+          <Route path="/Typography" component={Typography} />
+          <Route path="/Icons" component={Icons} />
+          <Route path="/Maps" component={Maps} />
+          <Route path="/Notifications" component={Notifications} />
+          <Route path="/RTLSupport" component={RTLSupport} />
+          <Route path="/UpgradeToPRO" component={UpgradeToPRO} />
+        </Switch>
+      </div>
   );
 }
 
